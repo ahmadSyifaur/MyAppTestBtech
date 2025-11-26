@@ -113,3 +113,6 @@ Response:
 docker compose up -d
 
 [![wakatime](https://wakatime.com/badge/user/449aec43-4ca5-4a03-b247-db8706bd1db0/project/876f6913-a12c-4bc7-aa50-f670bf10137d.svg)](https://wakatime.com/badge/user/449aec43-4ca5-4a03-b247-db8706bd1db0/project/876f6913-a12c-4bc7-aa50-f670bf10137d)
+
+
+https://wakatime.com/badge/user/449aec43-4ca5-4a03-b247-db8706bd1db0/project/876f6913-a12c-4bc7-aa50-f670bf10137d.svg
