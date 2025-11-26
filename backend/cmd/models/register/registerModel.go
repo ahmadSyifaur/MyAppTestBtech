@@ -1,0 +1,12 @@
+package register
+
+type RegisterRequest struct {
+	Email           string `json:"email" binding:"required,email"`
+	Password        string `json:"password" binding:"required,min=6"`
+	ConfirmPassword string `json:"confirmPassword" binding:"required,eqfield=Password"`
+}
+
+type RegisterResponse struct{
+	ResponseCode           string `json:"responseCode"`
+	ResponseMessage        string `json:"responseMessage"`
+}

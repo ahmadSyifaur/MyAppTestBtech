@@ -1,0 +1,50 @@
+services:
+  mysql:
+    image: mysql:8
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root123
+      MYSQL_DATABASE: myappdb
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    environment:
+      PMA_HOST: mysql
+      PMA_USER: root
+      PMA_PASSWORD: root123
+    ports:
+      - "8083:80"
+    depends_on:
+      - mysql
+
+  backend:
+    build: ./backend
+    container_name: backend
+    ports:
+      - "9909:9909"
+    environment:
+      DB_HOST: mysql       # ini penting
+      DB_PORT: 3306
+      DB_USER: root
+      DB_PASSWORD: root123
+      DB_NAME: myappdb
+      JWT_SECRET: supersecretkey
+      JWT_EXPIRE_MINUTES: 15
+    depends_on:
+      - mysql
+
+  frontend:
+    build: ./frontend
+    container_name: frontend
+    ports:
+      - "9090:9090"
+    depends_on:
+      - backend
+
+volumes:
+  mysql_data:
